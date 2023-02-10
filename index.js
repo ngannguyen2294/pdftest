@@ -25,7 +25,7 @@ const printPDF = async (text) => {
 };
 
 const text = `<div>
-  <img src="https://www.travelctm.co.uk/wp-content/themes/ctm/images/ctm-logo-long-header.png" style="border:0;display:block;outline:0;text-decoration:none;height:auto;width:100%;font-size:13px" width="200" height="auto">
+  <img src="file://assets/ctm-logo-long-header.png" style="border:0;display:block;outline:0;text-decoration:none;height:auto;width:100%;font-size:13px" width="200" height="auto">
   </div>`;
 
 const express = require("express");
