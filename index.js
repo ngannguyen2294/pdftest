@@ -1,5 +1,12 @@
 var PDF = require("html-pdf");
+var fs = require("fs");
 
+const convertImageToBase64 = (imgPath) => {
+  const imgExtension = imgPath.split(".").pop();
+  let image = `data:image/${imgExtension};base64,`;
+  image += fs.readFileSync(imgPath, "base64");
+  return image;
+};
 const printPDF = async (text) => {
   const options = {
     format: "A4",
@@ -25,7 +32,9 @@ const printPDF = async (text) => {
 };
 
 const text = `<div>
-  <img src="file://assets/ctm-logo-long-header.png" style="border:0;display:block;outline:0;text-decoration:none;height:auto;width:100%;font-size:13px" width="200" height="auto">
+  <img src="${convertImageToBase64(
+    "./assets/ctm-logo-long-header.png"
+  )}" style="border:0;display:block;outline:0;text-decoration:none;height:auto;width:100%;font-size:13px" width="200" height="auto">
   </div>`;
 
 const express = require("express");
